@@ -38,8 +38,20 @@ function serve() {
     })
     watch('src/**.html', series(html)).on('change', sync.reload)
     watch('src/styles/**.scss', series(scss)).on('change', sync.reload)
+    watch('src/scripts/**.js', series(copyScripts)).on('change', sync.reload)
 }
 
-exports.build = series(clear, scss, html)
-exports.serve = series(clear, scss, html, serve)
+function copyAssets() {
+    return src('src/assets/**')
+        .pipe(dest('dist/assets'))
+}
+
+function copyScripts() {
+    return src('src/scripts/**')
+        .pipe(concat('index.js'))
+        .pipe(dest('dist'))
+}
+
+exports.build = series(clear, scss, html, copyAssets, copyScripts)
+exports.serve = series(clear, scss, html, copyAssets,copyScripts, serve)
 exports.clear = clear

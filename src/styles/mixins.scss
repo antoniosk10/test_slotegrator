@@ -1,0 +1,17 @@
+@mixin flex-space-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin popup {
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px 0px #001A4226;
+}

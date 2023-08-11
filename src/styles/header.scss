@@ -1,0 +1,284 @@
+@import "colors";
+@import "mixins";
+
+.header {
+  &_note {
+    padding-right: 20px;
+  }
+
+  &_top-panel {
+    @include flex-space-center;
+    padding: 10px 279px;
+    background: $gray;
+  }
+
+  &_main-panel {
+    @include flex-space-center;
+    padding: 16px 279px;
+  }
+
+  &_search-button {
+    margin-left: 26px;
+    width: 20px;
+    height: 22px;
+    cursor: pointer;
+  }
+
+  &_contact-button {
+    @include flex-center-center;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background: $red;
+    color: $white;
+    cursor: pointer;
+  }
+
+  &_burger-menu {
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  &_buttons-group {
+    @include flex-space-center;
+  }
+}
+
+.language-select {
+  @include flex-space-center;
+  position: relative;
+  width: 182px;
+
+  &_input {
+    display: none;
+  }
+
+  &_input:checked ~ .language-select_list-items {
+    display: flex;
+  }
+
+  &_dropdown-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &_dropdown {
+    @include popup;
+    position: relative;
+    min-width: 136px;
+    padding: 10px;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+  }
+
+  &_item--current::after {
+    content: url("assets/svg/arrow_down.svg");
+    cursor: pointer;
+  }
+
+  &_item-text {
+    margin: 0 10px;
+  }
+
+  &_list-items {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+    padding: 10px;
+    background: $white;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px 0px #001A4226;
+  }
+
+  &_flag-wrapper {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &_close-button {
+    width: 12px;
+    height: 12px;
+    margin-left: 26px;
+    cursor: pointer;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 60px;
+
+  &_menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+  }
+
+  &_menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 5px;
+  }
+
+  &_menu-item:hover {
+    background: $gray;
+  }
+
+  &_menu-item:hover > .navbar_submenu-wrapper {
+    display: flex;
+  }
+
+  &_menu-item::after {
+    content: url("assets/svg/arrow_down.svg");
+    margin-left: 8px;
+  }
+
+  &_menu-divider {
+    flex-grow: 1;
+  }
+
+  &_submenu-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    padding-top: 25px;
+  }
+
+  &_submenu {
+    @include popup;
+    display: flex;
+    flex-direction: column;
+    min-width: 212px;
+    padding: 25px 0;
+  }
+
+  &_submenu-title {
+    padding: 5px 0 5px 25px;
+    background: $gray;
+    font-weight: 600;
+  }
+
+  &_submenu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 25px;
+  }
+
+  &_submenu-list-item {
+    padding: 5px 25px;
+  }
+
+  &_submenu-list-item:hover {
+    background: $gray;
+  }
+}
+
+@media (max-width: 1919px) {
+  .header {
+    &_top-panel {
+      padding: 10px 105px;
+    }
+
+    &_main-panel {
+      padding: 16px 105px;
+    }
+  }
+
+  .navbar {
+    &_menu {
+      justify-content: center;
+    }
+
+    &_menu-divider {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1439px) {
+  .header {
+    &_top-panel {
+      padding: 10px 100px;
+    }
+
+    &_main-panel {
+      padding: 16px 100px;
+    }
+  }
+
+  .navbar {
+    padding: 0 20px;
+
+    &_menu-item {
+      padding: 8px 12px;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .header {
+    &_top-panel {
+      padding: 20px 50px;
+    }
+
+    &_main-panel {
+      padding: 14px 50px;
+    }
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .header {
+    &_burger-menu {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: 809px) {
+  .header {
+    &_top-panel {
+      padding: 20px 30px;
+    }
+
+    &_main-panel {
+      padding: 14px 30px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    &_top-panel {
+      padding: 20px 25px;
+    }
+
+    &_main-panel {
+      padding: 14px 25px;
+    }
+  }
+}
