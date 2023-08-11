@@ -1,0 +1,263 @@
+@import "colors";
+@import "mixins";
+
+
+.footer {
+  padding: 80px 100px;
+  background: $darkGray;
+
+  &_main-section {
+    display: flex;
+  }
+
+  &_menu {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+  }
+
+  &_main-section-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 30px;
+  }
+
+  &_menu-title {
+    padding-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  &_menu-item {
+    color: $blue;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  &_menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &_main-section-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 434px;
+    margin-left: auto;
+  }
+
+  &_middle-section {
+    @include flex-space-center;
+    max-width: 855px;
+    padding: 16px 30px;
+    margin-left: auto;
+    background: $lightGray;
+    border-radius: 5px;
+  }
+
+  &_middle-section-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &_middle-section-list {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  &_middle-section-title {
+    padding-right: 15px;
+    color: $blue;
+  }
+
+  &_middle-section-list-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  &_divider {
+    height: 1px;
+    margin: 40px 0 26px 0;
+    background: $blue;
+  }
+
+  &_bottom-section {
+    @include flex-space-center
+  }
+
+  &_language-change-link {
+    @include flex-space-center;
+    padding: 5px 8px;
+    background: $lightGray;
+    border-radius: 5px;
+  }
+
+  &_language-change-link-img-wrapper {
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &_language-change-link-text {
+    line-height: 28px;
+  }
+
+  &_bottom-section-list {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+  }
+}
+
+.info {
+  &_title {
+    padding-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  &_content {
+    padding: 30px;
+    background: $lightGray;
+    border-radius: 5px;
+  }
+
+  &_note {
+    padding-bottom: 20px;
+    color: $blue;
+  }
+
+  &_item-icon-wrapper {
+    @include flex-center-center;
+    width: 30px;
+    height: 30px;
+    background: $transparentGray;
+    border-radius: 50%;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  &_item-link {
+    padding-left: 12px;
+    color: $blue;
+  }
+
+  &_socials-list {
+    display: flex;
+    gap: 40px;
+    padding-top: 20px;
+  }
+}
+
+@media(max-width: 1439px) {
+  .footer {
+    &_main-section-info {
+      max-width: 340px;
+    }
+  }
+  .info {
+    &_socials-list {
+      gap: 20px;
+    }
+  }
+
+}
+
+@media(max-width: 1279px) {
+  .footer {
+    padding: 60px 50px;
+
+    &_menu {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &_main-section {
+      gap: 30px;
+    }
+
+    &_menu-title {
+      display: flex;
+      cursor: pointer;
+    }
+
+    &_menu-title:after {
+      content: url("assets/svg/arrow_down.svg");
+      margin-left: auto;
+    }
+
+    &_main-section-column {
+      padding-bottom: 0;
+    }
+
+    &_menu-list:not(.opened) {
+      display: none;
+    }
+
+    &_menu-list {
+      padding-bottom: 25px;
+    }
+
+    &_middle-section {
+      padding: 20px 55px;
+    }
+
+    &_middle-section-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &_middle-section-title {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@media(max-width: 808px) {
+  .footer {
+    padding: 60px 30px;
+
+    &_main-section {
+      flex-direction: column;
+    }
+
+    &_main-section-info {
+      order: 0;
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    &_menu {
+      order: 1;
+    }
+
+    &_bottom-section {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+}
+
+@media(max-width: 639px) {
+    .footer {
+      &_middle-section {
+        flex-direction: column;
+        gap: 35px;
+      }
+
+      &_bottom-section-list {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+}

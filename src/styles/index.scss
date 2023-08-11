@@ -11,3 +11,12 @@ p, span {
   margin: 0 auto;
 }
 
+.content {
+  height: 500px;
+}
+
+@media(max-width: 811px) {
+  p, span {
+    font-size: 14px;
+  }
+}
